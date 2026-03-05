@@ -15,17 +15,16 @@ class DetailActivity : AppCompatActivity() {
         val detailTitleTextView: TextView = findViewById(R.id.detailTitle)
         val detailDescriptionTextView: TextView = findViewById(R.id.detailDescription)
 
-        // Retrieve data passed via Intent
         val park = intent.getSerializableExtra(PARK_EXTRA) as? Park
         val campground = intent.getSerializableExtra(CAMPGROUND_EXTRA) as? Campground
 
-        // Populate UI based on type
         when {
             park != null -> {
                 detailTitleTextView.text = park.fullName
                 detailDescriptionTextView.text = park.description
                 Glide.with(this).load(park.imageUrl).into(detailImageView)
             }
+
             campground != null -> {
                 detailTitleTextView.text = campground.name
                 detailDescriptionTextView.text = campground.description

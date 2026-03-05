@@ -26,10 +26,12 @@ class ParksAdapter(private val context: Context, private val parks: List<Park>) 
 
     override fun getItemCount() = parks.size
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
+        View.OnClickListener {
         private val parkImageView: ImageView = itemView.findViewById(R.id.itemParkImage)
         private val parkNameTextView: TextView = itemView.findViewById(R.id.itemParkTitle)
-        private val parkDescriptionTextView: TextView = itemView.findViewById(R.id.itemParkDescription)
+        private val parkDescriptionTextView: TextView =
+            itemView.findViewById(R.id.itemParkDescription)
 
         init {
             itemView.setOnClickListener(this)

@@ -26,11 +26,15 @@ class CampgroundAdapter(private val context: Context, private val campgrounds: L
 
     override fun getItemCount() = campgrounds.size
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
+        View.OnClickListener {
         private val campgroundImageView: ImageView = itemView.findViewById(R.id.itemCampgroundImage)
-        private val campgroundNameTextView: TextView = itemView.findViewById(R.id.itemCampgroundTitle)
-        private val campgroundDescriptionTextView: TextView = itemView.findViewById(R.id.itemCampgroundDescription)
-        private val campgroundLatLongTextView: TextView = itemView.findViewById(R.id.itemCampgroundLatLong)
+        private val campgroundNameTextView: TextView =
+            itemView.findViewById(R.id.itemCampgroundTitle)
+        private val campgroundDescriptionTextView: TextView =
+            itemView.findViewById(R.id.itemCampgroundDescription)
+        private val campgroundLatLongTextView: TextView =
+            itemView.findViewById(R.id.itemCampgroundLatLong)
 
         init {
             itemView.setOnClickListener(this)
@@ -41,9 +45,7 @@ class CampgroundAdapter(private val context: Context, private val campgrounds: L
             campgroundDescriptionTextView.text = campground.description
             campgroundLatLongTextView.text = campground.latLong
 
-            Glide.with(context)
-                .load(campground.imageUrl)
-                .into(campgroundImageView)
+            Glide.with(context).load(campground.imageUrl).into(campgroundImageView)
         }
 
         override fun onClick(v: View?) {
